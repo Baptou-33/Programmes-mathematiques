@@ -33,6 +33,14 @@ def Wallis(n):
         pi *= D(4)*D(i)**D(2)/((D(2)*D(i)-D(1))*(D(2)*D(i)+D(1)))
     return D(2)*pi
 
+def Archimede(n):
+    a = D(4)
+    b = D(8).sqrt()
+    for i in range(n):
+        a *= D(2)*b/(a+b)
+        b = D(a*b).sqrt()
+    return (a+b)/D(2)
+
 def John_Machin(n):
     pi = D(0)
     for i in range(n):
@@ -48,10 +56,10 @@ def Gauss_Legendre(n):
         a, b, p, t = (a+b)/D(2), D(a*b).sqrt(), D(2)*p, t-p*((a+b)/D(2)-a)**D(2)
     return (a+b)**D(2)/(D(4)*t)
 
-
 print("Monte-Carlo :    ", Monte_Carlo(p))
 print("Madhava-Leibniz :", Madhava_Leibniz(p))
 print("Riemann :        ", Riemann(p))
 print("Wallis :         ", Wallis(p))
+print("Archimède :      ", Archimede(p))
 print("John Machin :    ", John_Machin(p))
 print("Gauss Legendre : ", Gauss_Legendre(p))
