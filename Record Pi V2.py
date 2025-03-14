@@ -26,13 +26,13 @@ def chudnovsky(n):
     P1n, Q1n, R1n = binary_split(1, n, 1)
     print("Derniers calculs...")
     pi = D(10005).sqrt()
-    print("2/10")
+    print("2/100")
     pi *= Q1n
-    print("5/10")
+    print("89/100")
     pi *= 426880
-    print("6/10")
+    print("90/100")
     pi /= 13591409 * Q1n + R1n
-    print("10/10\n\nCalculs terminés! Pi est environ égal à :")
+    print("100/100\n\nCalculs terminés! Pi est environ égal à :")
     return pi
 
 print(D(chudnovsky(max(ceil(p/14), 2))).quantize(D(10)**(-p), rounding=ROUND_DOWN))
