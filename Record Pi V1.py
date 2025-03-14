@@ -2,13 +2,18 @@ from math import *
 from decimal import *
 from decimal import Decimal as D
 
-p = int(input("Nombres de décimales : "))
-getcontext().prec = p+3
+p = 10**10 #max = 999999999999999999
+getcontext().prec = p
+
+print("Initialisation")
 a = D(1)
+print("1/100")
 b = D(1)/D(2).sqrt()
+print("98/100")
 c = D(1)
+print("99/100")
 d = D(0.25)
-for i in range(1, ceil(log(p)*4)):
+print("100/100\nDébut des itérations")
+for i in range(1, 60):
     a, b, c, d = (a+b)/D(2), D(a*b).sqrt(), D(2)*c, d-c*((a+b)/D(2)-a)**D(2)
-    print(floor(100*i/ceil(log(p)*4)), '%')
-print(D((a+b)**D(2)/(D(4)*d)).quantize(D(10)**(-p), rounding=ROUND_DOWN))
+    print(2**i, " : ", D((a+b)**D(2)/(D(4)*d)).quantize(10**-(2**i), rounding=ROUND_DOWN))
