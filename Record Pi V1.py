@@ -2,7 +2,7 @@ from math import *
 from decimal import *
 from decimal import Decimal as D
 
-p = 10**10 #max = 999999999999999999
+p = 10**9 #max = 999999999999999999
 getcontext().prec = p
 
 print("Initialisation")
